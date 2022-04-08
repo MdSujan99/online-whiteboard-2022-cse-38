@@ -1,7 +1,7 @@
 window.addEventListener('load', () => {
     function initCanvas(canvas){
         canvas.height = window.innerHeight-100;
-        canvas.width = window.innerWidth-100;
+        canvas.width = window.innerWidth-250;
     }
     var canvas = document.querySelector("#myCanvas");
     initCanvas(canvas);
@@ -14,31 +14,7 @@ window.addEventListener('load', () => {
         canvas.width = window.innerWidth-100;
     })
     var ctx = canvas.getContext("2d"); // for drawing
-    // // a empty box or a box border
-    // ctx.strokeStyle = "red";    //only for stroke, not fill
-    // ctx.lineWidth = "5";    //only for stroke, not fill
-    // ctx.strokeRect(100,100,100,200);
 
-    // // a solid box
-    // ctx.fillStyle = "green";
-    // ctx.fillRect(250,100,100,200); 
-
-    // // line
-    // // line closed
-    // ctx.beginPath();
-    // ctx.moveTo(400,100);
-    // ctx.lineTo(500,300);
-    // ctx.lineTo(500,100);
-    // ctx.closePath();
-    // ctx.stroke();
-
-    // // line open
-    // ctx.beginPath();
-    // ctx.moveTo(600,100);
-    // ctx.lineTo(700,300);
-    // ctx.lineTo(700,100);
-    // // ctx.closePath();
-    // ctx.stroke();
 
     // freehand drawing
     let freehand = false;
