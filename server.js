@@ -11,3 +11,11 @@ const server = app.listen(port, function(error){
 });
 
 app.use(express.static('public'));
+
+const socket = require('socket.io');
+const io = socket(server);
+io.sockets.on('connection', newConnection);
+
+function newConnection(socket){
+    console.log("A new user connectd: new user socket id:\t"+socket.id);
+}

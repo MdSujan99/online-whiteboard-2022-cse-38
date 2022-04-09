@@ -1,4 +1,6 @@
+// when window loads
 window.addEventListener('load', () => {
+    socket = io.connect('http://localhost:3000')
     function initCanvas(canvas){
         canvas.height = window.innerHeight-100;
         canvas.width = window.innerWidth-250;
@@ -31,7 +33,7 @@ window.addEventListener('load', () => {
     function drawFreehand(e){
         if(freehand){
             console.log('drawing free hand');
-            ctx.lineWidth = 10;
+            ctx.lineWidth = 5;
             ctx.lineCap = "round"
             ctx.strokeStyle = 'red';
             ctx.lineTo(e.clientX,e.clientY);
