@@ -1,6 +1,8 @@
+port = 3000;
 const express = require('express');
 const app = express();
-port = 3000;
+
+app.use(express.static('public'));
 
 const server = app.listen(port, function(error){
     if (error){
@@ -10,11 +12,11 @@ const server = app.listen(port, function(error){
     }
 });
 
-app.use(express.static('public'));
-
 const socket = require('socket.io');
 const io = socket(server);
-io.sockets.on('connection', newConnection);
+
+io.sockets.on('connect', newConnection);
+io.sockets.on('disconnect', disconnection);
 
 function newConnection(socket){
     console.log("A new user connectd: new user socket id:\t"+socket.id);
@@ -25,4 +27,7 @@ function newConnection(socket){
         socket.broadcast.emit('mouseData', data);
 
     }
+}
+function disconnection(socket){
+    console.log(socket.id+" disconnected");
 }
