@@ -5,48 +5,64 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Online Whiteboard</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="canvas.js" defer></script>
-    <script src="/socket.io/socket.io.js"></script>
-<script>
-  var socket = io();
-</script>
+    
+    <!-- imports and links -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Francois+One&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./CSS/home.css">
 </head>
 <body>
-    <div class="main">
-        <div class="canvasArea">
-            <canvas id="myCanvas" width="50%" height="80%" style="background-color: whitesmoke;"></canvas>
-            <div class="toolsArea">
-                <div class="pens">
-                    <button id="pencil">Pencil</button>
-                    <button id="marker">Marker</button>
-                    <button id="highligher">Highligher</button>
-                </div>
-                <div class="shapes">
-                    <button id="line">Line</button>
-                    <button id="circle">Circle</button>
-                    <button id="rectangle">Rectangle</button>
-                </div>
-                <div class="colors">
-                    colors
-                </div>
-                <div class="correction">
-                    <button id="eraser">Eraser</button>
-                    <button id="btn-cls">Clear Canvas</button>
-                </div>
+    <header>
+        <div class="logo">
+            <a href="./index.html">Online Whiteboard</a>
+        </div>
+        <div class="toggle">
+            <div id="btn_toggle_theme">
+                
             </div>
         </div>
-        <div class="sideArea">
-            <div class="members">
-                meeting members
-            </div>
-            <div class="meetingDetails">
-                <p>meeting id</p>
-                <p>meeting pass</p>
-                <p>meeting link/url</p>
+    </header>
+    <main>
+        <div class="left_container">
+            <div class="" id="welcome_msg">
+                <h1>Welcome to Online Whiteboard</h1>
+                <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore dolorum non inventore ipsum nemo nihil aperiam saepe quisquam ipsa ipsam, quidem, possimus dolor est praesentium quasi accusamus consequuntur, nam nisi.
+                Quam possimus distinctio, nemo excepturi maiores officiis laudantium obcaecati quos eveniet voluptas blanditiis illum delectus pariatur ea sit cupiditate expedita et, vitae consectetur. Recusandae, temporibus. Ullam incidunt eveniet aspernatur. Praesentium?
+                </p>
             </div>
         </div>
-    </div>
-    
+        <div class="right_container">
+            <div id="demo">
+                <img src="./Design/Board.png" alt="demo look of the board" width="750px" height="auto">
+            </div>
+            <div class="options">
+                <div class="op_create">
+                    <button id="create_session" >
+                        Create
+                    </button>
+                    <p>Create a new session of Online Whiteboard</p>
+                </div>
+                <div class="op_join">
+                    <button id="join_session" >
+                        Join 
+                    </button>
+                    <p>Joine a session of Online Whiteboard <br> using Link or RoomName and RoomPass</p>
+                </div>
+                
+                <!-- <div class="tooltiptext"></div> -->
+            </div>
+        </div> 
+        
+    </main>
+    <footer>
+        <p>Footer area</p>
+    </footer>
 </body>
 </html>
