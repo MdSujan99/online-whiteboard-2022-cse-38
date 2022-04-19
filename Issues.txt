@@ -4,3 +4,6 @@ Issues
 -keeps mouse down when mouse pointer moves off of the canvas
 -bordering on the drawable canvas; where it stop/starts
 -resizing breaks the positioning
+--------------------------------------------------------------------
+Nikhil:
+-annotations are not presice.
