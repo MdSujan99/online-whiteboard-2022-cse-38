@@ -4,8 +4,8 @@
   "description": "",
   "main": "canvas.js",
   "scripts": {
-    "watch":"nodemon server.js",
-    "start":"node server.js"
+    "watch": "nodemon server.js",
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",

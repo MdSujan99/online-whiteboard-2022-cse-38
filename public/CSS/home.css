@@ -1,9 +1,11 @@
 /* variables */
 :root {
-    --bg_dark: #000;
-    --bg_light: rgb(255, 250, 232);
-    --btn_dark: #88D6B7;
-    --btn_light: #406153;
+    --bg_dark: #2B3034;
+    --bg_light: #fffae8;
+    --btn_bg_dark: #88D6B7;
+    --btn_bg_light: #406153;
+    --btn_border_dark: #000;
+    --btn_border_light: #fff;
     --text_dark: #fff;
     --text_light: #000;
     --font_large: 'Bangers', cursive;
@@ -33,7 +35,7 @@ a{
     color: inherit;
 }
 header{
-    height:70px;
+    /* height:70px; */
     /* border: 1px solid #000; */
     display: flex;
     justify-content: space-between;
@@ -45,7 +47,6 @@ header{
 }
 .logo {
     width: 90%;
-    height: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -53,20 +54,9 @@ header{
 }
 .toggle{
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-between;
-    width: 80px;
-    height: 100%;
-    font-size: .3em;
-    /* border: 1px solid black; */
-    
-}
-#btn_toggle_theme{
-    /* border: 1px solid black; */
-    background: rgb(255, 128, 0);
-    width: 100%;
-    height: 30px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 main{
     /* border: 1px solid #000; */
@@ -96,7 +86,7 @@ main{
     justify-content: space-evenly;
 }
 .right_container{
-    border: 1px solid #000;
+    /* border: 1px solid #000; */
     width: 50%;
     height: 100%;
     display: flex;
@@ -117,7 +107,7 @@ main{
     border-radius: 12px;
 }
 .options {
-    border: 1px solid #000;
+    /* border: 1px solid #000; */
     width: 100%;
     /* height: calc(100vh - 500px); */
     padding: 10px;
@@ -137,7 +127,7 @@ main{
     border-radius: 15px;
     font-size: 1.7em;
     background: rgb(163, 163, 163);
-    border: 1px solid rgb(0, 0, 0);
+    /* border: 1px solid rgb(0, 0, 0); */
 }
 #create_session:active, #join_session:active{
     background: rgb(120, 120, 120);
@@ -148,7 +138,7 @@ main{
     border: 2px solid rgb(0, 0, 0);
 }
 footer{
-    /* border: 1px solid #000; */
+    border: 1px solid #000;
     bottom: 0;
     height: 250px;
     text-align: center;

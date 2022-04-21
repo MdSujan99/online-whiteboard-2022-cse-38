@@ -1,0 +1,76 @@
+*{
+    padding: 0;
+    border: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style: none;
+}
+body{
+    background: #000;
+}
+button{
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+.canvasArea{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100vw;
+    height: 100vh;
+}
+#myCanvas{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.tools{
+    position: absolute;
+    top: 25%;
+    left:5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 12px;
+    background-color: #3d4449;
+}
+.tools img{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 5px 0px;
+}
+.meeting_sidebar{
+    position: absolute;
+    height: 80%;
+    top: 20px;
+    right:5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 10px;    
+    color: #fff;
+}
+.meeting_controls, .meeting_details, .meeting_members{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #2B3034;
+    width: fit-content;
+    border-radius: 12px;
+    padding: 10px;
+    width:200px;
+}
+.member_li{
+    padding: 5px;
+}
+#member_id{
+    width: 50px;
+}

@@ -9,20 +9,20 @@ window.addEventListener('load', () => {
     initCanvas(canvas);
     
     // btns
-    var btn_cls = document.querySelector('#btn-cls');
-    btn_cls.addEventListener('click', () => {
-        initCanvas(canvas)
-    })
+    // var btn_cls = document.querySelector('#btn-cls');
+    // btn_cls.addEventListener('click', () => {
+    //     initCanvas(canvas)
+    // })
     
     function initCanvas(canvas){
-        canvas.height = window.innerHeight-100;
-        canvas.width = window.innerWidth-250;
+        canvas.height = canvas.clientHeight;
+        canvas.width = canvas.clientWidth;
     }
     
-    window.addEventListener('resize', () =>{
-        canvas.height = window.innerHeight-100;
-        canvas.width = window.innerWidth-100;
-    });
+    // window.addEventListener('resize', () =>{
+    //     canvas.height = window.innerHeight-100;
+    //     canvas.width = window.innerWidth-100;
+    // });
 
     // context for drawing
     var ctx = canvas.getContext("2d"); 
