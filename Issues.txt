@@ -7,3 +7,5 @@ Issues
 --------------------------------------------------------------------
 Nikhil:
 -annotations are not presice.
+Manvith:
+-join key on start page non functional
