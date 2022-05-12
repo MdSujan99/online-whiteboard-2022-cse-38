@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,32 +10,34 @@
     <script src="./JS/canvas.js" defer></script>
     <script src="/socket.io/socket.io.js"></script>
 </head>
+
 <body>
     <div class="main">
         <div class="canvas_area">
             <canvas id="myCanvas" style="background-color: rgb(214, 214, 214);"></canvas>
         </div>
     </div>
-    
-    <!-- floating options -->
-    
-    <div class="tools">    
-        <img src="https://img.icons8.com/pastel-glyph/30/ffffff/ball-point-pen--v1.png"/>
-        <img id="highlighter" class="pens" src="https://img.icons8.com/ios-glyphs/30/ffffff/chisel-tip-marker.png"/>
-        
-        <img id="line" class="shapes" src="https://img.icons8.com/ios/30/ffffff/line--v1.png"/>
-        <img id="arrow" class="shapes" src="https://img.icons8.com/material-rounded/30/ffffff/down-left-arrow.png"/>
-        <img id="circle" class="shapes" src="https://img.icons8.com/ios/30/ffffff/circled.png"/>
-        <img id="rectangle" class="shapes" src="https://img.icons8.com/fluency-systems-regular/30/ffffff/rectangle.png"/>
-        
-        <img id="colors" src="https://img.icons8.com/external-vitaliy-gorbachev-lineal-color-vitaly-gorbachev/30/ffffff/external-colors-photography-vitaliy-gorbachev-lineal-color-vitaly-gorbachev.png"/>
-        <img id="eraser" src="https://img.icons8.com/ios/30/ffffff/eraser.png"/>
-        <img id="cls" src="https://img.icons8.com/ios-filled/30/ffffff/recurring-appointment.png"/>
-        <img id="save" src="https://img.icons8.com/material-outlined/30/ffffff/download--v1.png"/>
+
+    <!-- floating options and menus -->
+    <div class="tools">
+        <img src="https://img.icons8.com/pastel-glyph/30/ffffff/ball-point-pen--v1.png" />
+        <img id="highlighter" class="pens" src="https://img.icons8.com/ios-glyphs/30/ffffff/chisel-tip-marker.png" />
+
+        <img id="line" class="shapes" src="https://img.icons8.com/ios/30/ffffff/line--v1.png" />
+        <img id="arrow" class="shapes" src="https://img.icons8.com/material-rounded/30/ffffff/down-left-arrow.png" />
+        <img id="circle" class="shapes" src="https://img.icons8.com/ios/30/ffffff/circled.png" />
+        <img id="rectangle" class="shapes"
+            src="https://img.icons8.com/fluency-systems-regular/30/ffffff/rectangle.png" />
+
+        <img id="colors"
+            src="https://img.icons8.com/external-vitaliy-gorbachev-lineal-color-vitaly-gorbachev/30/ffffff/external-colors-photography-vitaliy-gorbachev-lineal-color-vitaly-gorbachev.png" />
+        <img id="eraser" src="https://img.icons8.com/ios/30/ffffff/eraser.png" />
+        <img id="cls" src="https://img.icons8.com/ios-filled/30/ffffff/recurring-appointment.png" />
+        <img id="save" src="https://img.icons8.com/material-outlined/30/ffffff/download--v1.png" />
     </div>
 
     <div class="meeting_sidebar">
-       
+
         <div class="meeting_details">
             <p>RoomName: some_name"</p>
             <p>RoomPass: 123xxxyy"</p>
@@ -69,4 +72,5 @@
         </div>
     </div>
 </body>
+
 </html>
