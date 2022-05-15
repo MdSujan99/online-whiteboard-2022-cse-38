@@ -1,29 +1,21 @@
 // when window loads
 window.addEventListener('load', () => {
-    // creaing socket connection
+    
+    // connect to our server
     socket = io.connect('http://localhost:3000')
+    
+    // receiving drawing
     socket.on('mouseData', socketDraw);
     
     // setup canvas
     var canvas = document.querySelector("#myCanvas");
     initCanvas(canvas);
     
-    // btns
-    // var btn_cls = document.querySelector('#btn-cls');
-    // btn_cls.addEventListener('click', () => {
-    //     initCanvas(canvas)
-    // })
-    
     function initCanvas(canvas){
         canvas.height = canvas.clientHeight;
         canvas.width = canvas.clientWidth;
     }
     
-    // window.addEventListener('resize', () =>{
-    //     canvas.height = window.innerHeight-100;
-    //     canvas.width = window.innerWidth-100;
-    // });
-
     // context for drawing
     var ctx = canvas.getContext("2d"); 
 
@@ -41,6 +33,7 @@ window.addEventListener('load', () => {
         }
         // ctx.beginPath();
     }
+    
     // freehand drawing
     let freehand = false;
 
