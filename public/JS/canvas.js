@@ -1,11 +1,25 @@
+
 // when window loads
 window.addEventListener('load', () => {
-    
+    var room = "mainRoom";
+    console.log(room)
     // connect to our server
     socket = io.connect('http://localhost:3000')
     
-    // receiving drawing
-    socket.on('mouseData', socketDraw);
+    // received drawing
+    socket.on('mouseData', (data, room) => {
+        console.log("Client received:"+data.x+" "+data.y);
+        ctx.lineWidth = 5;
+        ctx.lineCap = "round";
+        ctx.strokeStyle = 'blue';
+        ctx.lineTo(data.x,data.y);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(data.x,data.y);
+        if(data.done){
+            ctx.beginPath();
+        }   
+    });
     
     // setup canvas
     var canvas = document.querySelector("#myCanvas");
@@ -19,7 +33,7 @@ window.addEventListener('load', () => {
     // context for drawing
     var ctx = canvas.getContext("2d"); 
 
-    function socketDraw(data){
+    function socketDraw(data,room){
         console.log("Client received:"+data.x+" "+data.y);
         ctx.lineWidth = 5;
         ctx.lineCap = "round";
@@ -58,6 +72,7 @@ window.addEventListener('load', () => {
     function drawFreehand(e){
         if(freehand){
             console.log('drawing free hand');
+            console.log(room);
             ctx.lineWidth = 5;
             ctx.lineCap = "round"
             ctx.strokeStyle = 'red';
@@ -68,7 +83,7 @@ window.addEventListener('load', () => {
                 y: e.clientY,
                 done:false
             };
-            socket.emit('mouseData', data);
+            socket.to('myRoom').emit('mouseData', data, 'myRoom');
             ctx.beginPath();
             ctx.moveTo(e.clientX,e.clientY);
             

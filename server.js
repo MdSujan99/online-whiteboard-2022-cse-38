@@ -21,14 +21,22 @@ const socket = require("socket.io");
 const io = socket(server); // can say the server's socket
 
 io.on("connection", (socket) => {
+    socket.join('myRoom');
   console.log("A new user connectd\n\tsocketID:\t" + socket.id);
   const id = socket.id;
-  socket.on("mouseData", (data) => {
-    socket.broadcast.emit("mouseData", data);
+  socket.on("mouseData", (data, room) => {
+    if ((room == "")) {
+      console.log("no room");
+      socket.broadcast.emit("mouseData", data);
+    } else {
+        console.log("room: ",room);
+        socket.to(room).emit("mouseData", data);
+    }
+  });
+  socket.on("disconnecting", () => {
+    console.log(socket.rooms); 
   });
   socket.on("disconnect", (socket) => {
-    // console.log(socket.id + " disconnected");
     console.log(id + " disconnected");
   });
 });
-
