@@ -11,8 +11,7 @@ Online Whiteboard is an easy to use web application that acts as an online, inte
 
 ## Requirements
 
-#### Minimum Requirements:
-
+### Minimum Requirements
     Operating System : Windows 7+ / MacOS X+ / Ubuntu 18.04+
     Processor : Dual Core Pentium @ 1.3GHz/ AMD Athlon 3000G
     RAM : 4 GB
@@ -20,23 +19,22 @@ Online Whiteboard is an easy to use web application that acts as an online, inte
     Connectivity : 512kbps
     Browser : Any Chromium based browser
 
-## Install
+### Install
 
-- ### Requirements to install this project in your system:
+- #### Requirements to install this project in your system:
   - admin permissions to run/install software on the system
-  - NodeJS : [link to download nodejs for you system](https://https://
-    nodejs.org/en/download/)
-- ### Installing
+  - NodeJS : [link to download nodejs for you system](https:nodejs.org/en/download/)
+- #### Installing
   - Clone this repository.
   - Open native terminal or Terminal in VSCode inside the directory of this repository.
-  - #### Enter the following code
+  - #### Enter the following code in the terminal
         npm run install
     this command will install all the dependency packages required to run this npm application.
-- ### Running
-  - #### Enter the following code to run the app
+- #### Running
+  - #### Enter the following code in the terminal to run the app
         npm run -start
     this command will get the application running.
-- ## Opening/Launching the App
+- #### Opening/Launching the App
   - #### Go to your internet browser and enter the following link\*
         http://localhost:3000
     \*you can also refer the terminal when you run it for the right link
