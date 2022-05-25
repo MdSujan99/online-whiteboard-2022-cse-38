@@ -7,7 +7,7 @@ Online Whiteboard is an easy to use web application that acts as an online, inte
 - [Requirements](#requirements)
 - [Install](#install)
 - [Usage](#usage)
-- [Contributing](#contributing)
+- [Contributions](#contributions)
 
 ## Requirements
 
@@ -44,15 +44,15 @@ Online Whiteboard is an easy to use web application that acts as an online, inte
 As mentioned in this article, our project is a Web Application and works just like any website
 
 - Welcome to Home Page
-  - ![Welcome Page](MdSujan99.github.com/2021_22_CSE_38/public/Snapshots/welcome_page.jpg)
+  - ![Welcome Page](./public/Snapshots/welcome_page.jpeg)
 - Join a WhiteBoard Session or Create a new WhiteBoard Session
-  - ![Join/Create Section](MdSujan99.github.com/2021_22_CSE_38/public/Snapshots/join_create.jpg)
+  - ![Join/Create Section](./public/Snapshots/create_join.png)
 - Enter required credentials
-  - ![Join/Create Form](MdSujan99.github.com/2021_22_CSE_38/public/Snapshots/form_creds.jpg)
+  - ![Join/Create Form](./public/Snapshots/form_creds.jpeg)
 - Draw freehand and it appears in real time to everyone in the session
-  - ![Session Canvas](MdSujan99.github.com/2021_22_CSE_38/public/Snapshots/canvas_page.jpg)
+  - ![Session Canvas](./public/Snapshots/canvas_page.jpeg)
 - End Meeting or Leave Session
-  - ![End or Leave the Session](MdSujan99.github.com/2021_22_CSE_38/public/Snapshots/end_leave.jpg)
+  - ![End or Leave the Session](./public/Snapshots/end_leave.png)
 
 ## Contributions
 
