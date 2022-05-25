@@ -50,7 +50,7 @@ As mentioned in this article, our project is a Web Application and works just li
 - Enter required credentials
   - ![Join/Create Form](./public/Snapshots/form_creds.jpeg)
 - Draw freehand and it appears in real time to everyone in the session
-  - ![Session Canvas](./public/Snapshots/canvas_page.jpeg)
+  - ![Session Canvas](./public/Snapshots/drawing.png)
 - End Meeting or Leave Session
   - ![End or Leave the Session](./public/Snapshots/end_leave.png)
 
