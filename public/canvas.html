@@ -1,76 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Online Whiteboard</title>
-    <link rel="stylesheet" href="./CSS/canvas.css">
+
+    <!-- imports and links -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bangers&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Francois+One&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./CSS/canvas.css" />
     <script src="./JS/canvas.js" defer></script>
     <script src="/socket.io/socket.io.js"></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="main">
-        <div class="canvas_area">
-            <canvas id="myCanvas" style="background-color: rgb(214, 214, 214);"></canvas>
-        </div>
+      <div class="canvas_area">
+        <canvas
+          id="myCanvas"
+          style="background-color: rgb(214, 214, 214)"
+        ></canvas>
+      </div>
     </div>
 
     <!-- floating options and menus -->
     <div class="tools">
-        <img src="https://img.icons8.com/pastel-glyph/30/ffffff/ball-point-pen--v1.png" />
-        <img id="highlighter" class="pens" src="https://img.icons8.com/ios-glyphs/30/ffffff/chisel-tip-marker.png" />
+      <img
+        src="https://img.icons8.com/pastel-glyph/30/ffffff/ball-point-pen--v1.png"
+      />
+      <img
+        id="highlighter"
+        class="pens"
+        src="https://img.icons8.com/ios-glyphs/30/ffffff/chisel-tip-marker.png"
+      />
 
-        <img id="line" class="shapes" src="https://img.icons8.com/ios/30/ffffff/line--v1.png" />
-        <img id="arrow" class="shapes" src="https://img.icons8.com/material-rounded/30/ffffff/down-left-arrow.png" />
-        <img id="circle" class="shapes" src="https://img.icons8.com/ios/30/ffffff/circled.png" />
-        <img id="rectangle" class="shapes"
-            src="https://img.icons8.com/fluency-systems-regular/30/ffffff/rectangle.png" />
+      <img
+        id="line"
+        class="shapes"
+        src="https://img.icons8.com/ios/30/ffffff/line--v1.png"
+      />
+      <img
+        id="arrow"
+        class="shapes"
+        src="https://img.icons8.com/material-rounded/30/ffffff/down-left-arrow.png"
+      />
+      <img
+        id="circle"
+        class="shapes"
+        src="https://img.icons8.com/ios/30/ffffff/circled.png"
+      />
+      <img
+        id="rectangle"
+        class="shapes"
+        src="https://img.icons8.com/fluency-systems-regular/30/ffffff/rectangle.png"
+      />
 
-        <img id="colors"
-            src="https://img.icons8.com/external-vitaliy-gorbachev-lineal-color-vitaly-gorbachev/30/ffffff/external-colors-photography-vitaliy-gorbachev-lineal-color-vitaly-gorbachev.png" />
-        <img id="eraser" src="https://img.icons8.com/ios/30/ffffff/eraser.png" />
-        <img id="cls" src="https://img.icons8.com/ios-filled/30/ffffff/recurring-appointment.png" />
-        <img id="save" src="https://img.icons8.com/material-outlined/30/ffffff/download--v1.png" />
+      <img
+        id="colors"
+        src="https://img.icons8.com/external-vitaliy-gorbachev-lineal-color-vitaly-gorbachev/30/ffffff/external-colors-photography-vitaliy-gorbachev-lineal-color-vitaly-gorbachev.png"
+      />
+      <img id="eraser" src="https://img.icons8.com/ios/30/ffffff/eraser.png" />
+      <img
+        id="cls"
+        src="https://img.icons8.com/ios-filled/30/ffffff/recurring-appointment.png"
+      />
+      <img
+        id="save"
+        src="https://img.icons8.com/material-outlined/30/ffffff/download--v1.png"
+      />
     </div>
 
     <div class="meeting_sidebar">
-
-        <div class="meeting_details">
-            <p>RoomName: some_name"</p>
-            <p>RoomPass: 123xxxyy"</p>
-            <p>meeting link/url</p>
-        </div>
-        <ul class="meeting_members">
-            <li class="member_li">
-                <div id="member_indicator"></div>
-                <p id="member_name">Member Name</p>
-            </li>
-            <li class="member_li">
-                <div id="member_indicator"></div>
-                <p id="member_name">Member Name</p>
-            </li>
-            <li class="member_li">
-                <div id="member_indicator"></div>
-                <p id="member_name">Member Name</p>
-            </li>
-            <li class="member_li">
-                <div id="member_indicator"></div>
-                <p id="member_name">Member Name</p>
-            </li>
-            <li class="member_li">
-                <div id="member_indicator"></div>
-                <p id="member_name">Member Name</p>
-            </li>
-        </ul>
-        <div class="meeting_controls">
-            <button id="btn_end_meeting">
-                End Meeting
-            </button>
-        </div>
+      <div class="meeting_details">
+        <p>RoomName: "some_name"</p>
+        <p>RoomPass: "123xxxyy"</p>
+        <p>meeting link/url</p>
+      </div>
+      <ul class="meeting_members">
+        <li class="member_li">
+          <div id="member_indicator"></div>
+          <p id="member_name">Member Name</p>
+        </li>
+        <li class="member_li">
+          <div id="member_indicator"></div>
+          <p id="member_name">Member Name</p>
+        </li>
+        <li class="member_li">
+          <div id="member_indicator"></div>
+          <p id="member_name">Member Name</p>
+        </li>
+        <li class="member_li">
+          <div id="member_indicator"></div>
+          <p id="member_name">Member Name</p>
+        </li>
+        <li class="member_li">
+          <div id="member_indicator"></div>
+          <p id="member_name">Member Name</p>
+        </li>
+      </ul>
+      <div class="meeting_controls">
+        <button id="btn_end_meeting">End Meeting</button>
+      </div>
     </div>
-</body>
-
+  </body>
 </html>

@@ -1,3 +1,16 @@
+/* variables */
+:root {
+    --bg_dark: #2B3034;
+    --bg_light: #fffae8;
+    --btn_bg_dark: #88D6B7;
+    --btn_bg_light: #406153;
+    --btn_border_dark: #000;
+    --btn_border_light: #fff;
+    --text_dark: #fff;
+    --text_light: #000;
+    --font_large: 'Bangers', cursive;
+    --font_normal: 'Francois One', sans-serif;
+  }
 *{
     padding: 0;
     border: 0;
@@ -7,6 +20,7 @@
 }
 body{
     background: #000;
+    font-family: var(--font_normal);
 }
 button{
     padding: 5px 10px;

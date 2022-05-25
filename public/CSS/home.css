@@ -20,6 +20,7 @@
 }
 body{
     background-color: var(--bg_light);
+    font-family: var(--font_normal);
 }
 body::-webkit-scrollbar {
     display: none;
@@ -140,6 +141,20 @@ main{
 footer{
     border: 1px solid #000;
     bottom: 0;
-    height: 250px;
-    text-align: center;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.legal{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+.legal a{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
