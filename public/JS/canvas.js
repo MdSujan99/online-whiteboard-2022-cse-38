@@ -12,12 +12,24 @@ window.addEventListener("load", () => {
   const btnResetCanvas = document.getElementById("btn_cls");
   const btnSaveDrawinf = document.getElementById("btn_save");
   var strokeColor = "black";
-
-  colorPicker.addEventListener("input", () => {
+  var strokeSize = 5;
+  var strokeShape = "round";
+  const selectColor = () => {
     console.log(colorPicker.value);
     strokeColor = colorPicker.value;
-  });
+  };
 
+  btnEraser.addEventListener("click", () => {
+    strokeColor = "rgb(214,214,214)";
+    strokeSize = 100;
+    strokeShape = "square";
+  });
+  penMarker.addEventListener("click", () => {
+    selectColor();
+    strokeSize = 5;
+    strokeShape = "round";
+  });
+  colorPicker.addEventListener("input", selectColor);
   // All things drawing \ ----------------------------------------------------
   var room = "myRoom";
 
@@ -67,8 +79,8 @@ window.addEventListener("load", () => {
     if (freehand) {
       console.log("drawing free hand");
       console.log(room);
-      ctx.lineWidth = 5;
-      ctx.lineCap = "round";
+      ctx.lineWidth = strokeSize;
+      ctx.lineCap = strokeShape;
       ctx.strokeStyle = strokeColor;
       ctx.lineTo(e.clientX, e.clientY);
       ctx.stroke();
