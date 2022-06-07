@@ -12,32 +12,34 @@ window.addEventListener("load", () => {
   const btnResetCanvas = document.getElementById("btn_cls");
   const btnSaveDrawinf = document.getElementById("btn_save");
   var strokeColor = "black";
+
   colorPicker.addEventListener("input", () => {
     console.log(colorPicker.value);
     strokeColor = colorPicker.value;
   });
 
-  // function watchColorPicker(event) {
-  //   strokeColor = event.target.value;
-  // }
-
   // All things drawing \ ----------------------------------------------------
   var room = "myRoom";
-  //   console.log(room);
 
   // connect to our server
   socket = io.connect("http://localhost:3000");
 
   // setup canvas
-  var canvas = document.querySelector("#myCanvas");
+  const myCanvas = document.querySelector("#myCanvas");
   function initCanvas(canvas) {
     canvas.height = canvas.clientHeight;
     canvas.width = canvas.clientWidth;
   }
-  initCanvas(canvas);
 
   // context for drawing
-  var ctx = canvas.getContext("2d");
+  var ctx = myCanvas.getContext("2d");
+  initCanvas(myCanvas);
+  btnResetCanvas.addEventListener("click", () => {
+    // ctx.fillStyle(214, 214, 214);
+    // ctx.fillRect(0, 0, myCanvas.clientWidth, myCanvas.clientHeight);
+    initCanvas(myCanvas);
+    // console.log("btnCls");
+  });
 
   // freehand drawing
   let freehand = false;
@@ -96,7 +98,7 @@ window.addEventListener("load", () => {
       ctx.beginPath();
     }
   });
-  canvas.addEventListener("mousedown", startFree);
-  canvas.addEventListener("mouseup", endFree);
-  canvas.addEventListener("mousemove", drawFreehand);
+  myCanvas.addEventListener("mousedown", startFree);
+  myCanvas.addEventListener("mouseup", endFree);
+  myCanvas.addEventListener("mousemove", drawFreehand);
 });
