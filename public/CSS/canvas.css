@@ -25,6 +25,15 @@ body{
 button{
     padding: 5px 10px;
     border-radius: 10px;
+    background: none;
+}
+button:hover{
+    background: rgba(255, 255, 255, 0.704);
+    border: 1px solid black;
+}
+button:active{
+    background: none;
+    border: 1px solid white;
 }
 .canvasArea{
     position: relative;
@@ -42,12 +51,12 @@ button{
 .tools{
     position: absolute;
     top: 25%;
-    left:5px;
+    left:3px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    padding: 10px;
+    padding: 5px;
     border: 1px solid black;
     border-radius: 12px;
     background-color: #3d4449;

@@ -1,5 +1,27 @@
 // when window loads
 window.addEventListener("load", () => {
+  // Tools and stuff \ ----------------------------------------------------
+  const penMarker = document.getElementById("btn_marker");
+  const penHighlighter = document.getElementById("btn_highlighter");
+  const shapeLine = document.getElementById("btn_line");
+  const shapeArrow = document.getElementById("btn_arrow");
+  const shapeCircle = document.getElementById("btn_circle");
+  const shapeRect = document.getElementById("btn_rect");
+  const colorPicker = document.getElementById("colorPicker");
+  const btnEraser = document.getElementById("btn_eraser");
+  const btnResetCanvas = document.getElementById("btn_cls");
+  const btnSaveDrawinf = document.getElementById("btn_save");
+  var strokeColor = "black";
+  colorPicker.addEventListener("input", () => {
+    console.log(colorPicker.value);
+    strokeColor = colorPicker.value;
+  });
+
+  // function watchColorPicker(event) {
+  //   strokeColor = event.target.value;
+  // }
+
+  // All things drawing \ ----------------------------------------------------
   var room = "myRoom";
   //   console.log(room);
 
@@ -45,7 +67,7 @@ window.addEventListener("load", () => {
       console.log(room);
       ctx.lineWidth = 5;
       ctx.lineCap = "round";
-      ctx.strokeStyle = "red";
+      ctx.strokeStyle = strokeColor;
       ctx.lineTo(e.clientX, e.clientY);
       ctx.stroke();
       var data = {
@@ -74,7 +96,6 @@ window.addEventListener("load", () => {
       ctx.beginPath();
     }
   });
-
   canvas.addEventListener("mousedown", startFree);
   canvas.addEventListener("mouseup", endFree);
   canvas.addEventListener("mousemove", drawFreehand);

@@ -38,57 +38,57 @@
 
     <!-- floating options and menus -->
     <div class="tools">
-      <img
-        src="https://img.icons8.com/pastel-glyph/30/ffffff/ball-point-pen--v1.png"
-      />
-      <img
-        id="highlighter"
-        class="pens"
-        src="https://img.icons8.com/ios-glyphs/30/ffffff/chisel-tip-marker.png"
-      />
-
-      <img
-        id="line"
-        class="shapes"
-        src="https://img.icons8.com/ios/30/ffffff/line--v1.png"
-      />
-      <img
-        id="arrow"
-        class="shapes"
-        src="https://img.icons8.com/material-rounded/30/ffffff/down-left-arrow.png"
-      />
-      <img
-        id="circle"
-        class="shapes"
-        src="https://img.icons8.com/ios/30/ffffff/circled.png"
-      />
-      <img
-        id="rectangle"
-        class="shapes"
-        src="https://img.icons8.com/fluency-systems-regular/30/ffffff/rectangle.png"
-      />
-
-      <img
-        id="colors"
-        src="https://img.icons8.com/external-vitaliy-gorbachev-lineal-color-vitaly-gorbachev/30/ffffff/external-colors-photography-vitaliy-gorbachev-lineal-color-vitaly-gorbachev.png"
-      />
-      <img id="eraser" src="https://img.icons8.com/ios/30/ffffff/eraser.png" />
-      <img
-        id="cls"
-        src="https://img.icons8.com/ios-filled/30/ffffff/recurring-appointment.png"
-      />
-      <img
-        id="save"
-        src="https://img.icons8.com/material-outlined/30/ffffff/download--v1.png"
-      />
+      <button id="btn_marker" class="pens">
+        <img
+          src="https://img.icons8.com/pastel-glyph/24/000000/ball-point-pen--v1.png"
+        />
+      </button>
+      <button id="btn_highlighter" class="pens">
+        <img
+          src="https://img.icons8.com/ios-glyphs/24/000000/chisel-tip-marker.png"
+        />
+      </button>
+      <button id="btn_line" class="shapes">
+        <img src="https://img.icons8.com/ios/24/000000/line--v1.png" />
+      </button>
+      <button id="btn_arrow" class="shapes">
+        <img
+          src="https://img.icons8.com/material-rounded/24/000000/down-left-arrow.png"
+        />
+      </button>
+      <button id="btn_circle" class="shapes">
+        <img src="https://img.icons8.com/ios/24/000000/circled.png" />
+      </button>
+      <button id="btn_rectangle" class="shapes">
+        <img
+          src="https://img.icons8.com/fluency-systems-regular/24/000000/rectangle.png"
+        />
+      </button>
+      <!-- <label for="strokeColor"></label> -->
+      <input type="color" id="colorPicker" name="colorPicker" />
+      </button>
+      <button id="btn_eraser">
+        <img src="https://img.icons8.com/ios/24/000000/eraser.png" />
+      </button>
+      <button id="btn_cls">
+        <img
+          src="https://img.icons8.com/ios-filled/24/000000/recurring-appointment.png"
+        />
+      </button>
+      <button id="btn_save">
+        <img
+          src="https://img.icons8.com/material-outlined/24/000000/download--v1.png"
+        />
+      </button>
     </div>
-
     <div class="meeting_sidebar">
+      <!-- dummy details -->
       <div class="meeting_details">
         <p>RoomName: "some_name"</p>
         <p>RoomPass: "123xxxyy"</p>
         <p>meeting link/url</p>
       </div>
+      <!-- dummy list of users -->
       <ul class="meeting_members">
         <li class="member_li">
           <div id="member_indicator"></div>
@@ -112,7 +112,7 @@
         </li>
       </ul>
       <div class="meeting_controls">
-        <button id="btn_end_meeting">End Meeting</button>
+        <button id="btn_endMeeting">End Meeting</button>
       </div>
     </div>
   </body>
