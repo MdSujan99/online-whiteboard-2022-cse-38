@@ -47,10 +47,8 @@ window.addEventListener("load", () => {
   var ctx = myCanvas.getContext("2d");
   initCanvas(myCanvas);
   btnResetCanvas.addEventListener("click", () => {
-    // ctx.fillStyle(214, 214, 214);
-    // ctx.fillRect(0, 0, myCanvas.clientWidth, myCanvas.clientHeight);
+    socket.emit("clearCanvas", room);
     initCanvas(myCanvas);
-    // console.log("btnCls");
   });
 
   // freehand drawing
@@ -109,6 +107,9 @@ window.addEventListener("load", () => {
     if (data.done) {
       ctx.beginPath();
     }
+  });
+  socket.on("clearCanvas", () => {
+    initCanvas(myCanvas);
   });
   myCanvas.addEventListener("mousedown", startFree);
   myCanvas.addEventListener("mouseup", endFree);

@@ -20,7 +20,7 @@ const server = app.listen(port, function (error) {
 const socket = require("socket.io");
 const io = socket(server); // can say the server's socket
 
-io.on("connection", socket => {
+io.on("connection", (socket) => {
   const room = "myRoom";
   socket.join(room);
   console.log("A new user connectd\n\tsocketID:\t" + socket.id);
@@ -38,5 +38,8 @@ io.on("connection", socket => {
   });
   socket.on("disconnect", () => {
     console.log(socket.id + " disconnected");
+  });
+  socket.on("clearCanvas", () => {
+    socket.to(room).emit("clearCanvas");
   });
 });
