@@ -10,6 +10,10 @@
     --text_light: #000;
     --font_large: 'Bangers', cursive;
     --font_normal: 'Francois One', sans-serif;
+    --cursor-pen: url('data:image/svg+xml;utf8,<svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 26 26" preserveAspectRatio="xMidYMid meet"><text y="50%">🖍️</text></svg>') 6 28,
+        auto;
+    --cursor-eraser: url('data:image/svg+xml;utf8,<svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" preserveAspectRatio="xMidYMid meet"><text y="50%"><img src="public\Images\marker.png"/></text></svg>') 16 16,
+        auto
   }
 *{
     padding: 0;
@@ -19,8 +23,11 @@
     list-style: none;
 }
 body{
+    /* cursor: url('/public/Images/marker.png'), auto; */
+    cursor: var(--cursor-pen);
     background: #000;
     font-family: var(--font_normal);
+    height: 100vh;
 }
 button{
     padding: 5px 10px;

@@ -11,24 +11,30 @@ window.addEventListener("load", () => {
   const btnEraser = document.getElementById("btn_eraser");
   const btnResetCanvas = document.getElementById("btn_cls");
   const btnSaveDrawinf = document.getElementById("btn_save");
-  var strokeColor = "black";
-  var strokeSize = 5;
-  var strokeShape = "round";
+  var myStrokeColor = "black";
+  var myStrokeSize = 5;
+  var myStrokeShape = "round";
+  var btnActive = penMarker;
+
   const selectColor = () => {
     console.log(colorPicker.value);
-    strokeColor = colorPicker.value;
+    myStrokeColor = colorPicker.value;
   };
 
   btnEraser.addEventListener("click", () => {
-    strokeColor = "rgb(214,214,214)";
-    strokeSize = 100;
-    strokeShape = "square";
+    document.body.style.cursor = "var(--cursor-eraser)";
+    myStrokeColor = "rgb(214,214,214)";
+    myStrokeSize = 100;
+    myStrokeShape = "square";
   });
+
   penMarker.addEventListener("click", () => {
+    document.body.style.cursor = "var(--cursor-pen)";
     selectColor();
-    strokeSize = 5;
-    strokeShape = "round";
+    myStrokeSize = 5;
+    myStrokeShape = "round";
   });
+
   colorPicker.addEventListener("input", selectColor);
   // All things drawing \ ----------------------------------------------------
   var room = "myRoom";
@@ -77,14 +83,17 @@ window.addEventListener("load", () => {
     if (freehand) {
       console.log("drawing free hand");
       console.log(room);
-      ctx.lineWidth = strokeSize;
-      ctx.lineCap = strokeShape;
-      ctx.strokeStyle = strokeColor;
+      ctx.lineWidth = myStrokeSize;
+      ctx.lineCap = myStrokeShape;
+      ctx.strokeStyle = myStrokeColor;
       ctx.lineTo(e.clientX, e.clientY);
       ctx.stroke();
       var data = {
         x: e.clientX,
         y: e.clientY,
+        strokeColor: myStrokeColor,
+        strokeShape: myStrokeShape,
+        strokeSize: myStrokeSize,
         done: false,
       };
       socket.emit("mouseData", data, "myRoom");
@@ -97,9 +106,9 @@ window.addEventListener("load", () => {
   // received drawing
   socket.on("mouseData", (data) => {
     console.log("Client received:" + data.x + " " + data.y);
-    ctx.lineWidth = 5;
-    ctx.lineCap = "round";
-    ctx.strokeStyle = "blue";
+    ctx.lineWidth = data.strokeSize;
+    ctx.lineCap = data.strokeShape;
+    ctx.strokeStyle = data.strokeColor;
     ctx.lineTo(data.x, data.y);
     ctx.stroke();
     ctx.beginPath();
