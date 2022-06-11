@@ -13,7 +13,7 @@ const server = app.listen(port, function (error) {
     console.log("Error:" + error);
   } else {
     console.log("listening on port:" + port);
-    console.log("Link: \nhttp://localhost:" + port);
+    // console.log("Link: \nhttp://localhost:" + port);
   }
 });
 
