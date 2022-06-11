@@ -40,7 +40,10 @@ window.addEventListener("load", () => {
   var room = "myRoom";
 
   // connect to our server
-  socket = io.connect("http://localhost:3000");
+  // socket = io.connect(
+  //   "https://online-whiteboard-2022-cse-38.herokuapp.com:3000"
+  // );
+  socket = io.connect();
 
   // setup canvas
   const myCanvas = document.querySelector("#myCanvas");
