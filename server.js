@@ -5,10 +5,7 @@ port = process.env.PORT || 3000;
 const express = require("express");
 const app = express();
 
-// serves static files
-app.use(express.static("public"));
-
-const server = app.listen(port, function (error) {
+var server = app.listen(port, (error) => {
   if (error) {
     console.log("Error:" + error);
   } else {
@@ -16,6 +13,8 @@ const server = app.listen(port, function (error) {
     // console.log("Link: \nhttp://localhost:" + port);
   }
 });
+
+app.use(express.static("public"));
 
 const socket = require("socket.io");
 const io = socket(server); // can say the server's socket
