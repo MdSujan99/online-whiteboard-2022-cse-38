@@ -1,0 +1,201 @@
+/* variables */
+:root {
+  --bg_dark: #2b3034;
+  --bg_dark_tr: #2b30347e;
+  --bg_light: #fffae8;
+  /* --bg_light_tr: #fffae8c1; */
+  --text_dark: #000;
+  --text_light: #fff;
+  --font_large: "Bangers", cursive;
+  --font_normal: "Francois One", sans-serif;
+}
+button {
+  padding: 10px 25px;
+  border-radius: 10px;
+  border: 2px solid var(--bg_dark);
+  font-size: 1.2em;
+  background: var(--bg_dark);
+  color: var(--text_light);
+}
+button:hover {
+  background: var(--bg_dark_tr);
+  color: var(--bg_dark);
+}
+button:active {
+  background: var(--bg_light);
+  color: var(--text_dark);
+  border: 2px solid var(--bg_dark);
+}
+* {
+  box-sizing: border-box;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: auto auto auto;
+  background-color: var(--bg_light);
+  font-family: var(--font_normal);
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+header {
+  padding: 3px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  font-family: var(--font_large);
+  font-size: 64px;
+  /* border: 1px solid black; */
+  color: var(--text_light);
+  background: var(--bg_dark);
+  color: var(--bg_light);
+  border-radius: 0px 0px 10% 10%;
+}
+.logo {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  /* border: 1px solid black; */
+  align-items: center;
+}
+
+#theme_dark {
+  display: none;
+}
+#theme_light {
+  display: block;
+  background: #ffffff;
+}
+main {
+  font-family: var(--font_normal);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 10px;
+  /* border: 1px solid black; */
+  height: calc(100vh - 70px);
+}
+.left_container {
+  /* border: 1px solid #000; */
+  width: 50%;
+  height: 80%;
+  /* border: 1px solid black; */
+  font-size: 1.3em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  /* padding: 10px; */
+}
+.welcome_msg {
+  width: 100%;
+  height: 70%;
+  padding: 20px;
+  display: flex;
+  border: 1px solid black;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.about_msg {
+  border: 1px solid black;
+}
+.right_container {
+  border: 1px solid #000;
+  max-width: 50%;
+  /* border: 1px solid black; */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#demo_img {
+  border: 3px solid black;
+  border-radius: 12px;
+  min-width: 600px;
+  min-height: auto;
+  max-width: 100%;
+  max-height: 100%;
+}
+.options {
+  width: 100%;
+  /* border: 1px solid black; */
+  /* height: calc(100vh - 500px); */
+  padding: 10px;
+  display: flex;
+  justify-content: space-evenly;
+}
+.op_join,
+.op_create {
+  /* height: 80%; */
+  padding: 3px;
+  /* border: 1px solid black; */
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  align-items: center;
+}
+#create_session,
+#join_session {
+  height: 100px;
+  /* border: 1px solid black; */
+  width: 200px;
+  border-radius: 15px;
+  font-size: 1.7em;
+  background: rgb(163, 163, 163);
+  /* border: 1px solid rgb(0, 0, 0); */
+}
+#create_session:active,
+#join_session:active {
+  background: rgb(120, 120, 120);
+  /* border: 1px solid black; */
+  /* box-shadow: black 2px 2px; */
+  color: white;
+}
+#create_session:hover,
+#join_session:hover {
+  border: 2px solid rgb(0, 0, 0);
+}
+footer {
+  border: 1px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.legal a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media only screen and (max-width: 1000px) {
+  header {
+    font-size: 42px;
+  }
+  main {
+    flex-direction: column;
+  }
+  .left_container,
+  .right_container {
+    width: 100%;
+    height: 50%;
+  }
+  .demo img {
+    max-width: 100%;
+    max-height: fit-content;
+  }
+}
