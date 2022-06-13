@@ -16,5 +16,5 @@ if (!/\?code=[\w+\.\-]{45}/g.test(window.location.search)) {
   console.log("if true");
 } else {
   console.log("else false");
-  window.location.href = "/create.html";
+  //   window.location.href = "/create.html";
 }
