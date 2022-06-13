@@ -1,106 +1,123 @@
 /* variables */
 :root {
-    --bg_dark: #2B3034;
-    --bg_light: #fffae8;
-    --btn_bg_dark: #88D6B7;
-    --btn_bg_light: #406153;
-    --btn_border_dark: #000;
-    --btn_border_light: #fff;
-    --text_dark: #fff;
-    --text_light: #000;
-    --font_large: 'Bangers', cursive;
-    --font_normal: 'Francois One', sans-serif;
-    --cursor-pen: url('data:image/svg+xml;utf8,<svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 26 26" preserveAspectRatio="xMidYMid meet"><text y="50%">🖍️</text></svg>') 6 28,
-        auto;
-    --cursor-eraser: url('data:image/svg+xml;utf8,<svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" preserveAspectRatio="xMidYMid meet"><text y="50%"><img src="public\Images\marker.png"/></text></svg>') 16 16,
-        auto
-  }
-*{
-    padding: 0;
-    border: 0;
-    margin: 0;
-    box-sizing: border-box;
-    list-style: none;
+  --bg_dark: #2b3034;
+  --bg_light: #fffae8;
+  --btn_bg_dark: #88d6b7;
+  --btn_bg_light: #406153;
+  --btn_border_dark: #000;
+  --btn_border_light: #fff;
+  --text_dark: #fff;
+  --text_light: #000;
+  --font_large: "Bangers", cursive;
+  --font_normal: "Francois One", sans-serif;
+  --cursor-pen: url('data:image/svg+xml;utf8,<svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 26 26" preserveAspectRatio="xMidYMid meet"><text y="50%">🖍️</text></svg>')
+      6 28,
+    auto;
+  --cursor-eraser: url('data:image/svg+xml;utf8,<svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" preserveAspectRatio="xMidYMid meet"><text y="50%"><img src="public\Images\marker.png"/></text></svg>')
+      16 16,
+    auto;
 }
-body{
-    /* cursor: url('/public/Images/marker.png'), auto; */
-    cursor: var(--cursor-pen);
-    background: #000;
-    font-family: var(--font_normal);
-    height: 100vh;
+* {
+  padding: 0;
+  border: 0;
+  margin: 0;
+  box-sizing: border-box;
+  list-style: none;
 }
-button{
-    padding: 5px 10px;
-    border-radius: 10px;
-    background: none;
+body {
+  /* cursor: url('/public/Images/marker.png'), auto; */
+  cursor: var(--cursor-pen);
+  background: #000;
+  font-family: var(--font_normal);
+  height: 100vh;
 }
-button:hover{
-    background: rgba(255, 255, 255, 0.704);
-    border: 1px solid black;
+button {
+  padding: 5px 10px;
+  border-radius: 10px;
+  background: none;
+  cursor: pointer;
 }
-button:active{
-    background: none;
-    border: 1px solid white;
+button:hover {
+  background: rgba(255, 255, 255, 0.704);
+  border: 1px solid black;
 }
-.canvasArea{
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    width: 100vw;
-    height: 100vh;
+button:active {
+  background: none;
+  border: 1px solid white;
 }
-#myCanvas{
-    position: absolute;
-    width: 100%;
-    height: 100%;
+.canvasArea {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100vw;
+  height: 100vh;
 }
-.tools{
-    position: absolute;
-    top: 25%;
-    left:3px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    padding: 5px;
-    border: 1px solid black;
-    border-radius: 12px;
-    background-color: #3d4449;
+#myCanvas {
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
-.tools img{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    margin: 5px 0px;
+.tools {
+  position: absolute;
+  top: 25%;
+  left: 3px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 12px;
+  background-color: #3d4449;
 }
-.meeting_sidebar{
-    position: absolute;
-    height: 80%;
-    top: 20px;
-    right:5px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    padding: 10px;    
-    color: #fff;
+.tools img {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 5px 0px;
 }
-.meeting_controls, .meeting_details, .meeting_members{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    background-color: #2B3034;
-    width: fit-content;
-    border-radius: 12px;
-    padding: 10px;
-    width:200px;
+.meeting_sidebar {
+  position: absolute;
+  /* height: 80%; */
+  padding: 5px;
+  top: 20px;
+  right: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  /* padding: 10px; */
+  color: #fff;
 }
-.member_li{
-    padding: 5px;
+.meeting_controls,
+#meeting_details,
+.meeting_members {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: #2b3034;
+  width: fit-content;
+  border-radius: 12px;
+  padding: 10px;
+  width: 200px;
+  margin: 5px 0px;
 }
-#member_id{
-    width: 50px;
+#btn_endMeeting {
+  background: red;
+  color: white;
+  font-size: inherit;
+  border: 2px solid black;
+}
+#btn_endMeeting:active {
+  border: 2px solid white;
+  /* cursor: pointer; */
+}
+.member_li {
+  padding: 5px;
+}
+#member_id {
+  width: 50px;
 }

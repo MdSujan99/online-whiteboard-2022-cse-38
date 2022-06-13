@@ -15,10 +15,24 @@ window.addEventListener("load", () => {
   var myStrokeSize = 5;
   var myStrokeShape = "round";
   var btnActive = penMarker;
-
+  const btn_endMeeting = document.getElementById("btn_endMeeting");
   // Meeting details
-  const meeting_details = document.getElementsByClassName("meeting_details");
-  console.log(meeting_details);
+  var params = window.location.search.split("?")[1].split("&");
+  params = params.map((item) => item.split("="));
+  const roomData = {
+    roomName: params[0][1],
+    roomPass: params[1][1],
+    hostName: params[2][1],
+  };
+  console.log("Room Data" + roomData);
+  document.getElementById("meeting_details").innerHTML =
+    "<p>RoomName: " +
+    roomData.roomName +
+    "</p><p>RoomPass: " +
+    roomData.roomPass +
+    "</p><p>Host Name: " +
+    roomData.hostName +
+    "</p>";
 
   const selectColor = () => {
     console.log(colorPicker.value);
@@ -40,49 +54,48 @@ window.addEventListener("load", () => {
   });
 
   colorPicker.addEventListener("input", selectColor);
-  // All things drawing \ ----------------------------------------------------
-  var room = "myRoom";
 
+  // All things drawing \ ----------------------------------------------------
+  // define the room
+  const room = roomData.roomName;
   // connect to our server
   socket = io();
-
+  // join room
+  socket.emit("join room", room);
   // setup canvas
   const myCanvas = document.querySelector("#myCanvas");
   function initCanvas(canvas) {
     canvas.height = canvas.clientHeight;
     canvas.width = canvas.clientWidth;
   }
-
   // context for drawing
   var ctx = myCanvas.getContext("2d");
   initCanvas(myCanvas);
+  // clear the canvas
   btnResetCanvas.addEventListener("click", () => {
     socket.emit("clearCanvas", room);
     initCanvas(myCanvas);
   });
-
   // freehand drawing
   let freehand = false;
-
   function startFree(e) {
     console.log("mousedown");
     ctx.beginPath();
     freehand = true;
     drawFreehand(e);
   }
-
   function endFree(e) {
     var data = {
       x: e.clientX,
       y: e.clientY,
       done: true,
+      roomName: room,
     };
     socket.emit("mouseData", data);
     console.log("mouseup");
     freehand = false;
     ctx.beginPath();
   }
-
   function drawFreehand(e) {
     if (freehand) {
       console.log("drawing free hand");
@@ -99,8 +112,9 @@ window.addEventListener("load", () => {
         strokeShape: myStrokeShape,
         strokeSize: myStrokeSize,
         done: false,
+        roomName: room,
       };
-      socket.emit("mouseData", data, "myRoom");
+      socket.emit("mouseData", data);
       ctx.beginPath();
       ctx.moveTo(e.clientX, e.clientY);
     }
@@ -127,4 +141,7 @@ window.addEventListener("load", () => {
   myCanvas.addEventListener("mousedown", startFree);
   myCanvas.addEventListener("mouseup", endFree);
   myCanvas.addEventListener("mousemove", drawFreehand);
+  // btn_endMeeting.addEventListener("click", () => {
+  //   socket.emit("end meeting", room);
+  // });
 });
