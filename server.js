@@ -5,7 +5,7 @@ port = process.env.PORT || 3000;
 const express = require("express");
 const app = express();
 
-var server = app.listen(port, (error) => {
+var server = app.listen(3000, (error) => {
   if (error) {
     console.log("Error:" + error);
   } else {
@@ -17,27 +17,35 @@ app.use(express.static("public"));
 
 const socket = require("socket.io");
 const io = socket(server); // can say the server's socket
+var users = [];
 
+// when a socket joins the server
 io.on("connection", (socket) => {
-  const room = "myRoom";
-  socket.join(room);
   console.log("A new user connectd\n\tsocketID:\t" + socket.id);
-  socket.on("mouseData", (data) => {
-    if (room == "") {
-      console.log("no room");
-      socket.broadcast.emit("mouseData", data);
-    } else {
-      console.log("room: ", room);
-      socket.to(room).emit("mouseData", data);
-    }
+
+  //join the socket to their given room
+  socket.on("join room", (roomName) => {
+    socket.join(roomName);
   });
+  socket.on("end meeting", (room) => {
+    socket.leave(room);
+    io.close();
+  });
+  // recieved mouse data for drawing
+  socket.on("mouseData", (data) => {
+    console.log("room: ", data.roomName);
+    io.to(data.roomName).emit("mouseData", data);
+  });
+
   socket.on("disconnecting", () => {
     console.log(socket.rooms);
   });
+
   socket.on("disconnect", () => {
     console.log(socket.id + " disconnected");
   });
-  socket.on("clearCanvas", () => {
+
+  socket.on("clearCanvas", (room) => {
     socket.to(room).emit("clearCanvas");
   });
 });
