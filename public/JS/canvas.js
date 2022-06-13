@@ -1,6 +1,6 @@
 // when window loads
 window.addEventListener("load", () => {
-  // Tools and stuff \ ----------------------------------------------------
+  // Tools and btns \ ----------------------------------------------------
   const penMarker = document.getElementById("btn_marker");
   const penHighlighter = document.getElementById("btn_highlighter");
   const shapeLine = document.getElementById("btn_line");
@@ -15,6 +15,10 @@ window.addEventListener("load", () => {
   var myStrokeSize = 5;
   var myStrokeShape = "round";
   var btnActive = penMarker;
+
+  // Meeting details
+  const meeting_details = document.getElementsByClassName("meeting_details");
+  console.log(meeting_details);
 
   const selectColor = () => {
     console.log(colorPicker.value);
