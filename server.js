@@ -17,7 +17,7 @@ app.use(express.static("public"));
 
 const socket = require("socket.io");
 const io = socket(server); // can say the server's socket
-var users = [];
+// var users = [];
 
 // when a socket joins the server
 io.on("connection", (socket) => {
@@ -34,7 +34,7 @@ io.on("connection", (socket) => {
   // recieved mouse data for drawing
   socket.on("mouseData", (data) => {
     console.log("room: ", data.roomName);
-    io.to(data.roomName).emit("mouseData", data);
+    socket.to(data.roomName).emit("mouseData", data);
   });
 
   socket.on("disconnecting", () => {
