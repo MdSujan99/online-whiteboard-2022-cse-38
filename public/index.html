@@ -1,81 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Online Whiteboard</title>
 
     <!-- imports and links -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bangers&display=swap"
+      rel="stylesheet"
+    />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Francois+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Francois+One&display=swap"
+      rel="stylesheet"
+    />
 
-    <link rel="stylesheet" href="./CSS/home.css">
-</head>
+    <link rel="stylesheet" href="./CSS/index.css" />
+    <script src="./JS/index.js" defer></script>
+  </head>
 
-<body>
+  <body>
     <header>
-        <div class="logo">
-            <a href="./index.html">Online Whiteboard</a>
-        </div>
-        <div class="toggle">
-            <img id="toggle_light" src="https://img.icons8.com/ios-filled/50/2B3034/sun--v1.png" />
-            <img id="toggle_dark" src="https://img.icons8.com/ios-glyphs/45/fffae8/moon-symbol.png" />
-        </div>
+      <div class="logo">
+        <a href="./index.html">Online Whiteboard</a>
+      </div>
+      <!-- <div class="theme_toggle">
+        <img
+          id="theme_light"
+          src="https://img.icons8.com/ios-filled/50/aaaaaa/sun--v1.png"
+        />
+
+        <img
+          id="theme_dark"
+          src="https://img.icons8.com/ios-glyphs/45/fffae8/moon-symbol.png"
+        />
+      </div> -->
     </header>
     <main>
-        <div class="left_container">
-            <div class="" id="welcome_msg">
-                <h1>Welcome to Online Whiteboard</h1>
-                <p>
-                    Online Whiteboard is an easy to use web application that acts as an online, interactive whiteboard in a room
-                     based session where meeting coordinators can annotate and draw on a virtual canvas with useful tools and
-                      attendees can watch and even draw with the coordinator upon permissions/modes. The virtual meeting sessions 
-                      are controlled by a session owner and annotation permisssions can be provided to other users if needed.
-                </p>
-            </div>
-        </div>
-        <div class="right_container">
-            <div id="demo">
-                <img src="./demo.png" alt="demo look of the board" width="750px" height="auto">
-            </div>
-            <div class="options">
-                <form class="op_create" action="./create.html">
-                    <button type="submit" id="create_session">
-                        Create
-                    </button>
-                    <p>Create a new session of Online Whiteboard</p>
-                </form>
-                <form action="./join.html" class="op_join">
-                    <button type="submit" id="join_session">
-                        Join
-                    </button>
-                    <p>Join a session of Online Whiteboard <br> using Link or RoomName and RoomPass</p>
-                </form action="./join.html">
-
-            </div>
-        </div>
+      <div class="left_container">
+        <article class="welcome_msg">
+          <h1>Welcome to Online Whiteboard</h1>
+          <p>
+            Online Whiteboard is an easy to use web application that acts as an
+            online, interactive whiteboard in a room based session where meeting
+            coordinators can annotate and draw on a virtual canvas with useful
+            tools and attendees can watch and even draw with the coordinator
+            upon permissions/modes. The virtual meeting sessions are controlled
+            by a session owner and annotation permisssions can be provided to
+            other users if needed.
+          </p>
+        </article>
+        <article class="about_msg">
+          <p>
+            This project was made by the students of CSE Dept. (2022), KSIT,
+            Bangalore:
+            <br />
+            Md&nbsp;Sujan <br />
+            Manvith&nbsp;P <br />
+            Nikhil&nbsp;Vasan
+          </p>
+        </article>
+      </div>
+      <div class="right_container">
+        <img
+          id="demo_img"
+          src="./demo.png"
+          alt="empty canvas page with tools on left and meeting details on right"
+        />
+        <form id="myForm" class="options">
+          <button type="submit" id="btn_create">Create</button>
+          <button type="submit" id="btn_join">Join</button>
+          <!-- <div class="op_create">
+            <p>Create a new session</p>
+          </div>
+          <div class="op_join">
+            <p>Join a session</p>
+          </div> -->
+        </form>
+      </div>
     </main>
     <footer>
-        <section class="legal">
-            <p>
-                This project was made by the students of CSE Dept. (2022), KSIT, Bangalore: 
-                <br> Md&nbsp;Sujan 
-                <br> Manvith&nbsp;P 
-                <br> Nikhil&nbsp;Vasan 
-                <br>
-                <a target="_blank" href="https://github.com/MdSujan99/2021_22_CSE_38">
-                    This Project on github<img class="contact-links-img" src="https://img.icons8.com/color/48/000000/github--v1.png" width="36" height="36"/>
-                </a>
-            </p>
-        </section>
+      <section class="legal">
+        <a
+          target="_blank"
+          href="https://github.com/MdSujan99/online-whiteboard-2022-cse-38"
+        >
+          This Project on github<img
+            class="contact-links-img"
+            src="https://img.icons8.com/color/48/000000/github--v1.png"
+            width="36"
+            height="36"
+          />
+        </a>
+      </section>
     </footer>
-</body>
-
+  </body>
 </html>
