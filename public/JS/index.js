@@ -6,7 +6,8 @@ myForm.onsubmit = (e) => {
   console.log(submitBtn);
   var url =
     "https://login.microsoftonline.com/consumers/oauth2/v2.0/authorize?client_id=71c8ebe1-c1eb-4200-9645-0a16441defe8&redirect_uri=";
-  var redirect_uri = "http://localhost:3000/";
+  var redirect_uri = "https://online-whiteboard-2022-cse-38.herokuapp.com/";
+  // var redirect_uri = "http://localhost:3000/";
   if (submitBtn.id == "btn_create") redirect_uri = redirect_uri + "create.html";
   else redirect_uri = redirect_uri + "join.html";
   var scope = "&scope=user.read&response_type=code&response_mode=query";
