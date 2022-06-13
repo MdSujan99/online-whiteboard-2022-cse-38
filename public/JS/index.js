@@ -13,8 +13,10 @@ myForm.onsubmit = (e) => {
   url = url + redirect_uri + scope;
   console.log(url);
   if (!/\?code=[\w+\.\-]{45}/g.test(window.location.search)) {
+    console.log("if true");
     window.location.href = url;
   } else {
+    console.log("else false");
     window.location.href = "/create.html";
   }
 };
