@@ -17,6 +17,6 @@ myForm.onsubmit = (e) => {
     console.log("if true");
   } else {
     console.log("else false");
-    // window.location.href = "/index.html";
+    window.location.href = "/create.html";
   }
 };
