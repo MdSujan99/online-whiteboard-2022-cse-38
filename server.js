@@ -10,7 +10,6 @@ var server = app.listen(port, (error) => {
     console.log("Error:" + error);
   } else {
     console.log("listening on port:" + port);
-    // console.log("Link: \nhttp://localhost:" + port);
   }
 });
 

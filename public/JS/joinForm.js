@@ -1,16 +1,4 @@
-var myForm = document.getElementById("form_join");
-const url =
-  "https://login.microsoftonline.com/consumers/oauth2/v2.0/authorize?client_id=71c8ebe1-c1eb-4200-9645-0a16441defe8&redirect_uri=https://online-whiteboard-2022-cse-38.herokuapp.com//canvas.html&scope=user.read&response_type=code&response_mode=query";
-myForm.onsubmit = (e) => {
-  e.preventDefault();
-  const roomData = {};
-  roomData.roomName = document.getElementById("roomName");
-  roomData.roomPass = document.getElementById("roomPass");
-  roomData.hostName = document.getElementById("atd_name");
-  console.log(roomData);
-  if (!/\?code=[\w+\.\-]{45}/g.test(window.location.search)) {
-    window.location.href = url;
-  } else {
-    window.location.href = "/canvas.html";
-  }
-};
+// const roomData = {};
+// roomData.roomName = document.forms["form_create"]["roomName"].value;
+// roomData.roomPass = document.forms["form_create"]["roomPass"].value;
+// roomData.hostName = document.forms["form_create"]["atd_name"].value;

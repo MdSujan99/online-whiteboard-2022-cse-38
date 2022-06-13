@@ -5,7 +5,6 @@ Online Whiteboard is an easy to use web application that acts as an online, inte
 ## Table of Contents
 
 - [Requirements](#requirements)
-- [Install](#install)
 - [Usage](#usage)
 - [Contributions](#contributions)
 
@@ -19,31 +18,12 @@ Online Whiteboard is an easy to use web application that acts as an online, inte
     Connectivity : 512kbps
     Browser : Any Chromium based browser
 
-### Install
-
-- #### Requirements to install this project in your system:
-  - admin permissions to run/install software on the system
-  - NodeJS : [link to download nodejs for you system](https:nodejs.org/en/download/)
-- #### Installing
-  - Clone this repository.
-  - Open native terminal or Terminal in VSCode inside the directory of this repository.
-  - #### Enter the following code in the terminal
-        npm run install
-    this command will install all the dependency packages required to run this npm application.
-- #### Running
-  - #### Enter the following code in the terminal to run the app
-        npm run -start
-    this command will get the application running.
-- #### Opening/Launching the App
-  - #### Go to your internet browser and enter the following link\*
-        http://localhost:3000
-    \*you can also refer the terminal when you run it for the right link
-
 ## Usage
 
-As mentioned in this article, our project is a Web Application and works just like any website
+- Go to the website [OnlineWhiteboard](https://online-whiteboard-2022-cse-38.herokuapp.com/).
+- As mentioned in this article, our project is a Web Application and works just like any website
 
-- Welcome to Home Page
+<!-- - Welcome to Home Page
   - ![Welcome Page](./public/Snapshots/welcome_page.jpeg)
 - Join a WhiteBoard Session or Create a new WhiteBoard Session
   - ![Join/Create Section](./public/Snapshots/create_join.png)
@@ -52,7 +32,7 @@ As mentioned in this article, our project is a Web Application and works just li
 - Draw freehand and it appears in real time to everyone in the session
   - ![Session Canvas](./public/Snapshots/drawing.png)
 - End Meeting or Leave Session
-  - ![End or Leave the Session](./public/Snapshots/end_leave.png)
+  - ![End or Leave the Session](./public/Snapshots/end_leave.png) -->
 
 ## Contributions
 

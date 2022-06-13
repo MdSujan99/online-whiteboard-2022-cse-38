@@ -63,7 +63,7 @@ header {
   color: var(--text_light);
   background: var(--bg_dark);
   color: var(--bg_light);
-  border-radius: 0px 0px 10% 10%;
+  /* border-radius: 0px 0px 10% 10%; */
 }
 .logo {
   width: 100%;
@@ -106,15 +106,15 @@ main {
   height: 70%;
   padding: 20px;
   display: flex;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   flex-direction: column;
   justify-content: space-evenly;
 }
 .about_msg {
-  border: 1px solid black;
+  /* border: 1px solid black; */
 }
 .right_container {
-  border: 1px solid #000;
+  /* border: 1px solid #000; */
   max-width: 50%;
   /* border: 1px solid black; */
   height: 100%;
@@ -125,7 +125,7 @@ main {
 }
 
 #demo_img {
-  border: 3px solid black;
+  /* border: 3px solid black; */
   border-radius: 12px;
   min-width: 600px;
   min-height: auto;
@@ -172,7 +172,7 @@ main {
   border: 2px solid rgb(0, 0, 0);
 }
 footer {
-  border: 1px solid #000;
+  /* border: 1px solid #000; */
   display: flex;
   align-items: center;
   justify-content: center;
