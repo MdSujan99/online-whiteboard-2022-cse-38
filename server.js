@@ -6,6 +6,7 @@ const express = require("express");
 const app = express();
 
 var server = app.listen(3000, (error) => {
+  // var server = app.listen(port, (error) => {
   if (error) {
     console.log("Error:" + error);
   } else {
@@ -26,6 +27,7 @@ io.on("connection", (socket) => {
   //join the socket to their given room
   socket.on("join room", (roomName) => {
     socket.join(roomName);
+    io.to(roomName).emit("newUser", socket.id);
   });
   socket.on("end meeting", (room) => {
     socket.leave(room);

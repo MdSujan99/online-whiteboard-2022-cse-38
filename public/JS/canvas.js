@@ -17,22 +17,32 @@ window.addEventListener("load", () => {
   var btnActive = penMarker;
   const btn_endMeeting = document.getElementById("btn_endMeeting");
   // Meeting details
+  var userIds = [];
+
   var params = window.location.search.split("?")[1].split("&");
   params = params.map((item) => item.split("="));
+  params.forEach((item) => {
+    console.log(item);
+  });
   const roomData = {
     roomName: params[0][1],
     roomPass: params[1][1],
-    hostName: params[2][1],
   };
+
+  const memberName = params[2][1];
+
+  // meeting members
   console.log("Room Data" + roomData);
   document.getElementById("meeting_details").innerHTML =
     "<p>RoomName: " +
     roomData.roomName +
     "</p><p>RoomPass: " +
     roomData.roomPass +
-    "</p><p>Host Name: " +
-    roomData.hostName +
     "</p>";
+
+  const member_li = document.createElement("li");
+  member_li.innerHTML = '<p id="member_name">' + memberName + "</p>";
+  document.getElementById("members_list").appendChild(member_li);
 
   const selectColor = () => {
     console.log(colorPicker.value);
@@ -68,6 +78,8 @@ window.addEventListener("load", () => {
     canvas.height = canvas.clientHeight;
     canvas.width = canvas.clientWidth;
   }
+
+  console.log();
   // context for drawing
   var ctx = myCanvas.getContext("2d");
   initCanvas(myCanvas);
@@ -138,10 +150,16 @@ window.addEventListener("load", () => {
   socket.on("clearCanvas", () => {
     initCanvas(myCanvas);
   });
+
+  socket.on("newUser", (socketId) => {
+    userIds.push(socketId);
+    console.log(userIds);
+  });
   myCanvas.addEventListener("mousedown", startFree);
   myCanvas.addEventListener("mouseup", endFree);
   myCanvas.addEventListener("mousemove", drawFreehand);
-  // btn_endMeeting.addEventListener("click", () => {
-  //   socket.emit("end meeting", room);
-  // });
+  btn_endMeeting.addEventListener("click", () => {
+    console.log("End Meeting");
+    window.location.href = "http://localhost:3000/index.html";
+  });
 });
