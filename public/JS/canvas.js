@@ -30,8 +30,6 @@ window.addEventListener("load", () => {
     roomData.roomName +
     "</p><p>RoomPass: " +
     roomData.roomPass +
-    "</p><p>Host Name: " +
-    roomData.hostName +
     "</p>";
 
   const selectColor = () => {
