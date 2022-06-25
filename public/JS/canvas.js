@@ -139,8 +139,8 @@ window.addEventListener("load", () => {
   myCanvas.addEventListener("mousedown", startFree);
   myCanvas.addEventListener("mouseup", endFree);
   myCanvas.addEventListener("mousemove", drawFreehand);
-  // btn_endMeeting.addEventListener("click", () => {
-  //   socket.emit("end meeting", room);
-  // });
+  btn_endMeeting.addEventListener("click", () => {
+    socket.emit("end meeting", room);
+  });
   function saveDrawing() {}
 });
