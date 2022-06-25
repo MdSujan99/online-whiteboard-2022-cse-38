@@ -142,4 +142,5 @@ window.addEventListener("load", () => {
   // btn_endMeeting.addEventListener("click", () => {
   //   socket.emit("end meeting", room);
   // });
+  function saveDrawing() {}
 });
