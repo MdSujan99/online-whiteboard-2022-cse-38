@@ -136,7 +136,8 @@ window.addEventListener("load", () => {
   socket.on("clearCanvas", () => {
     initCanvas(myCanvas);
   });
-  socket.on("end meeting", () => {
+  socket.on("end meeting", (room) => {
+    console.log("ending meeting for room " + room);
     window.location.href =
       "https://online-whiteboard-2022-cse-38.herokuapp.com/";
   });
@@ -145,7 +146,7 @@ window.addEventListener("load", () => {
   myCanvas.addEventListener("mousemove", drawFreehand);
   btn_endMeeting.addEventListener("click", () => {
     console.log("ending meeting");
-    socket.emit("end meeting", room);
+    socket.broadcast.emit("end meeting", room);
   });
   // function saveDrawing() {}
 });
