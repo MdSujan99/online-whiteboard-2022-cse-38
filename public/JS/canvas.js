@@ -137,8 +137,7 @@ window.addEventListener("load", () => {
     initCanvas(myCanvas);
   });
   socket.on("end meeting", () => {
-    window.location.href =
-      "https://online-whiteboard-2022-cse-38.herokuapp.com/";
+    location.href = "https://online-whiteboard-2022-cse-38.herokuapp.com/";
   });
   myCanvas.addEventListener("mousedown", startFree);
   myCanvas.addEventListener("mouseup", endFree);
