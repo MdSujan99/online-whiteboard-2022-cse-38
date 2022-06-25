@@ -40,7 +40,7 @@ window.addEventListener("load", () => {
   btnEraser.addEventListener("click", () => {
     document.body.style.cursor = "var(--cursor-eraser)";
     myStrokeColor = "rgb(214,214,214)";
-    myStrokeSize = 100;
+    myStrokeSize = 24;
     myStrokeShape = "square";
   });
 
@@ -136,17 +136,17 @@ window.addEventListener("load", () => {
   socket.on("clearCanvas", () => {
     initCanvas(myCanvas);
   });
-  socket.on("end meeting", (room) => {
-    console.log("ending meeting for room " + room);
-    window.location.href =
-      "https://online-whiteboard-2022-cse-38.herokuapp.com/";
-  });
+  // socket.on("end meeting", (room) => {
+  //   console.log("ending meeting for room " + room);
+  //   window.location.href =
+  //     "https://online-whiteboard-2022-cse-38.herokuapp.com/";
+  // });
   myCanvas.addEventListener("mousedown", startFree);
   myCanvas.addEventListener("mouseup", endFree);
   myCanvas.addEventListener("mousemove", drawFreehand);
-  btn_endMeeting.addEventListener("click", () => {
-    console.log("ending meeting");
-    socket.broadcast.emit("end meeting", room);
-  });
+  // btn_endMeeting.addEventListener("click", () => {
+  //   console.log("ending meeting");
+  //   socket.broadcast.emit("end meeting", room);
+  // });
   // function saveDrawing() {}
 });
