@@ -2,21 +2,22 @@
 window.addEventListener("load", () => {
   // Tools and btns \ ----------------------------------------------------
   const penMarker = document.getElementById("btn_marker");
-  const penHighlighter = document.getElementById("btn_highlighter");
   const shapeLine = document.getElementById("btn_line");
-  const shapeArrow = document.getElementById("btn_arrow");
   const shapeCircle = document.getElementById("btn_circle");
   const shapeRect = document.getElementById("btn_rect");
   const colorPicker = document.getElementById("colorPicker");
   const btnEraser = document.getElementById("btn_eraser");
   const btnResetCanvas = document.getElementById("btn_cls");
-  const btnSaveDrawinf = document.getElementById("btn_save");
+  
   var myStrokeColor = "black";
   var myStrokeSize = 5;
   var myStrokeShape = "round";
   var btnActive = penMarker;
-  const btn_endMeeting = document.getElementById("btn_endMeeting");
+  
+  var btn_endMeeting = document.getElementById("btn_endMeeting");
+  
   // Meeting details
+ 
   var params = window.location.search.split("?")[1].split("&");
   params = params.map((item) => item.split("="));
   const roomData = {
@@ -54,12 +55,16 @@ window.addEventListener("load", () => {
   colorPicker.addEventListener("input", selectColor);
 
   // All things drawing \ ----------------------------------------------------
+  
   // define the room
   const room = roomData.roomName;
+
   // connect to our server
   socket = io();
+
   // join room
   socket.emit("join room", room);
+
   // setup canvas
   const myCanvas = document.querySelector("#myCanvas");
   function initCanvas(canvas) {
@@ -133,20 +138,22 @@ window.addEventListener("load", () => {
       ctx.beginPath();
     }
   });
+
   socket.on("clearCanvas", () => {
     initCanvas(myCanvas);
   });
-  // socket.on("end meeting", (room) => {
-  //   console.log("ending meeting for room " + room);
-  //   window.location.href =
-  //     "https://online-whiteboard-2022-cse-38.herokuapp.com/";
-  // });
+
+  socket.on("end meeting", (room) => {
+    console.log("ending meeting for room " + room);
+    window.location.href =
+      "https://online-whiteboard-2022-cse-38.herokuapp.com/";
+  });
   myCanvas.addEventListener("mousedown", startFree);
   myCanvas.addEventListener("mouseup", endFree);
   myCanvas.addEventListener("mousemove", drawFreehand);
-  // btn_endMeeting.addEventListener("click", () => {
-  //   console.log("ending meeting");
-  //   socket.broadcast.emit("end meeting", room);
-  // });
-  // function saveDrawing() {}
+  btn_endMeeting.addEventListener("click", () => {
+    console.log("ending meeting");
+    socket.emit("end meeting", room);
+    window.location.href='http://localhost:3000';
+  });
 });

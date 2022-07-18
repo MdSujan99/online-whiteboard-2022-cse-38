@@ -29,8 +29,8 @@ io.on("connection", (socket) => {
     socket.join(roomName);
   });
   socket.on("end meeting", (room) => {
-    socket.leave(room);
-    io.close();
+    console.log("disconnecting socket "+socket);
+    socket.disconnect();
   });
   // recieved mouse data for drawing
   socket.on("mouseData", (data) => {
