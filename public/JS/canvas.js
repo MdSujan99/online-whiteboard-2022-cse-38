@@ -76,10 +76,14 @@ window.addEventListener("load", () => {
   // freehand drawing
   let freehand = false;
   function startFree(e) {
-    console.log("mousedown");
-    ctx.beginPath();
-    freehand = true;
-    drawFreehand(e);
+    if (username == users[0].username && socket.id == users[0].id) {
+      console.log("mousedown");
+      ctx.beginPath();
+      freehand = true;
+      drawFreehand(e);
+    } else {
+      console.log("access not granted for attendees");
+    }
   }
   function endFree(e) {
     var data = {
