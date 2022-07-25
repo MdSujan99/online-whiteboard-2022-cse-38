@@ -2,19 +2,18 @@
 window.addEventListener("load", () => {
   // Tools and btns \ ----------------------------------------------------
   const penMarker = document.getElementById("btn_marker");
-  const shapeLine = document.getElementById("btn_line");
-  const shapeCircle = document.getElementById("btn_circle");
-  const shapeRect = document.getElementById("btn_rect");
+  // const shapeLine = document.getElementById("btn_line");
+  // const shapeCircle = document.getElementById("btn_circle");
+  // const shapeRect = document.getElementById("btn_rect");
   const colorPicker = document.getElementById("colorPicker");
   const btnEraser = document.getElementById("btn_eraser");
   const btnResetCanvas = document.getElementById("btn_cls");
-
+  // drawing variables/constants
   var myStrokeColor = "black";
   var myStrokeSize = 5;
   var myStrokeShape = "round";
-  var btnActive = penMarker;
+  // meeting controls
   var btn_endMeeting = document.getElementById("btn_endMeeting");
-
   // Meeting details
   var params = window.location.search.split("?")[1].split("&");
   params = params.map((item) => item.split("="));
@@ -51,28 +50,23 @@ window.addEventListener("load", () => {
   });
 
   // All things drawing \ ----------------------------------------------------
-
   // define the room
   const roomName = roomDetails.roomName;
-  const username = roomDetails.hostName;
+  const username = roomDetails.userName;
   var users = [];
   // connect to our server
   socket = io();
-
   // join room
   socket.emit("join room", roomName, username);
-
   // setup canvas
   const myCanvas = document.querySelector("#myCanvas");
   function initCanvas(canvas) {
     canvas.height = canvas.clientHeight;
     canvas.width = canvas.clientWidth;
   }
-
   // context for drawing
   var ctx = myCanvas.getContext("2d");
   initCanvas(myCanvas);
-
   // freehand drawing
   let freehand = false;
   function startFree(e) {
@@ -117,9 +111,7 @@ window.addEventListener("load", () => {
       ctx.beginPath();
       ctx.moveTo(e.clientX, e.clientY);
     }
-    // return;
   }
-
   // received drawing
   socket.on("newMouseData", (data) => {
     console.log("Client received:" + data.x + " " + data.y);
@@ -138,19 +130,34 @@ window.addEventListener("load", () => {
 
   socket.on("new user", (newUsers) => {
     users = newUsers;
+    // var membersList = document.getElementById("membersList");
     console.log(users);
+    var usernames = users.reduce((names, user) => {
+      return names + " " + user.username;
+    }, "");
+    console.log("Usernames " + usernames);
+    var usernames = usernames.split(" ");
+    console.log(usernames);
+    let membersList = document.getElementById("membersList");
+
+    while (membersList.hasChildNodes()) {
+      membersList.removeChild(membersList.firstChild);
+    }
+    usernames.forEach((username) => {
+      let li = document.createElement("li");
+      li.innerText = username;
+      membersList.appendChild(li);
+    });
   });
 
   socket.on("clearCanvas", () => {
     initCanvas(myCanvas);
   });
-
   socket.on("end meeting", () => {
     console.log("ending meeting for room " + roomName);
     window.location.href =
       "https://online-whiteboard-2022-cse-38.herokuapp.com/";
   });
-
   socket.on("access not granted", console.log("Access not granted"));
   // clear the canvas
   btnResetCanvas.addEventListener("click", () => {

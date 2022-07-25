@@ -80,7 +80,7 @@ button:active {
 }
 .meeting_sidebar {
   position: absolute;
-  /* height: 80%; */
+  /* background-color: #2b3034; */
   padding: 5px;
   top: 20px;
   right: 5px;
@@ -93,7 +93,7 @@ button:active {
 }
 .meeting_controls,
 #meeting_details,
-.meeting_members {
+#membersList {
   display: flex;
   flex-direction: column;
   align-items: center;
