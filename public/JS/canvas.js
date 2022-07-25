@@ -21,7 +21,7 @@ window.addEventListener("load", () => {
   const roomDetails = {
     roomName: params[0][1],
     roomPass: params[1][1],
-    hostName: params[2][1],
+    userName: params[2][1],
   };
   console.log("Room Details" + roomDetails);
   document.getElementById("meeting_details").innerHTML =
