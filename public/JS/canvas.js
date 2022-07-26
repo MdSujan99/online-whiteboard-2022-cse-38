@@ -13,7 +13,7 @@ window.addEventListener("load", () => {
   var myStrokeSize = 5;
   var myStrokeShape = "round";
   // meeting controls
-  var btn_endMeeting = document.getElementById("btn_endMeeting");
+  var btn_exitMeeting = document.getElementById("btn_exitMeeting");
   // Meeting details
   var params = window.location.search.split("?")[1].split("&");
   params = params.map((item) => item.split("="));
@@ -37,7 +37,7 @@ window.addEventListener("load", () => {
 
   btnEraser.addEventListener("click", () => {
     document.body.style.cursor = "var(--cursor-eraser)";
-    myStrokeColor = "rgb(214,214,214)";
+    myStrokeColor = "rgb(255,255,255)";
     myStrokeSize = 24;
     myStrokeShape = "square";
   });
@@ -57,7 +57,7 @@ window.addEventListener("load", () => {
   // connect to our server
   socket = io();
   // join room
-  socket.emit("join room", roomName, username);
+  socket.emit("joinRoom", roomName, username);
   // setup canvas
   const myCanvas = document.querySelector("#myCanvas");
   function initCanvas(canvas) {
@@ -69,6 +69,8 @@ window.addEventListener("load", () => {
   initCanvas(myCanvas);
   // freehand drawing
   let freehand = false;
+
+  // all functions and callbacks
   function startFree(e) {
     if (username == users[0].username && socket.id == users[0].id) {
       console.log("mousedown");
@@ -79,17 +81,7 @@ window.addEventListener("load", () => {
       console.log("access not granted for attendees");
     }
   }
-  function endFree(e) {
-    var data = {
-      x: e.clientX,
-      y: e.clientY,
-      done: true,
-    };
-    socket.emit("sendMouseData", username, roomName, data);
-    console.log("mouseup");
-    freehand = false;
-    ctx.beginPath();
-  }
+
   function drawFreehand(e) {
     if (freehand) {
       console.log("drawing free hand");
@@ -112,6 +104,28 @@ window.addEventListener("load", () => {
       ctx.moveTo(e.clientX, e.clientY);
     }
   }
+
+  function endFree(e) {
+    var data = {
+      x: e.clientX,
+      y: e.clientY,
+      done: true,
+    };
+    socket.emit("sendMouseData", username, roomName, data);
+    console.log("mouseup");
+    freehand = false;
+    ctx.beginPath();
+  }
+  // //simply call clearCanvas socket event
+  // function clearCanvas() {
+  //   socket.emit("clearCanvas", username, roomName);
+  // }
+
+  function exitMeeting() {
+    console.log("exiting meeting");
+    socket.emit("exitMeeting", roomName);
+    window.location.href = "http://localhost:3000";
+  }
   // received drawing
   socket.on("newMouseData", (data) => {
     console.log("Client received:" + data.x + " " + data.y);
@@ -127,11 +141,9 @@ window.addEventListener("load", () => {
     }
     // console.log(users);
   });
-
-  socket.on("new user", (newUsers) => {
+  socket.on("newUser", (newUsers) => {
     users = newUsers;
-    // var membersList = document.getElementById("membersList");
-    console.log(users);
+    console.log("users:\t" + users);
     var usernames = users.reduce((names, user) => {
       return names + " " + user.username;
     }, "");
@@ -139,7 +151,6 @@ window.addEventListener("load", () => {
     var usernames = usernames.split(" ");
     console.log(usernames);
     let membersList = document.getElementById("membersList");
-
     while (membersList.hasChildNodes()) {
       membersList.removeChild(membersList.firstChild);
     }
@@ -149,28 +160,19 @@ window.addEventListener("load", () => {
       membersList.appendChild(li);
     });
   });
+  socket.on("clearCanvas", (username, roomName) => {
+    initCanvas(myCanvas);
+  });
+  socket.on("exitMeeting", exitMeeting);
 
-  socket.on("clearCanvas", () => {
-    initCanvas(myCanvas);
-  });
-  socket.on("end meeting", () => {
-    console.log("ending meeting for room " + roomName);
-    window.location.href =
-      "https://online-whiteboard-2022-cse-38.herokuapp.com/";
-  });
-  socket.on("access not granted", console.log("Access not granted"));
-  // clear the canvas
+  // client events
   btnResetCanvas.addEventListener("click", () => {
-    socket.emit("clearCanvas", roomName);
     initCanvas(myCanvas);
+    socket.emit("clearCanvas", username, roomName);
   });
   myCanvas.addEventListener("mousedown", startFree);
   myCanvas.addEventListener("mouseup", endFree);
   myCanvas.addEventListener("mousemove", drawFreehand);
-  btn_endMeeting.addEventListener("click", () => {
-    console.log("ending meeting");
-    socket.emit("end meeting", roomName);
-    window.location.href = "http://localhost:3000";
-  });
+  btn_exitMeeting.addEventListener("click", exitMeeting);
   colorPicker.addEventListener("input", selectColor);
 });
